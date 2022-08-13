@@ -16,6 +16,7 @@ import { hasAnyAuthority } from 'app/shared/auth/private-route';
 import ErrorBoundary from 'app/shared/error/error-boundary';
 import { AUTHORITIES } from 'app/config/constants';
 import AppRoutes from 'app/routes';
+import QuizQuestion from './components/QuizQuestion';
 
 const baseHref = document.querySelector('base').getAttribute('href').replace(/\/$/, '');
 
@@ -34,9 +35,11 @@ export const App = () => {
   const isOpenAPIEnabled = useAppSelector(state => state.applicationProfile.isOpenAPIEnabled);
 
   const paddingTop = '60px';
+  let tempValue = 'piss';
+
   return (
     <BrowserRouter basename={baseHref}>
-      <div className="app-container" style={{ paddingTop }}>
+      {/* <div className="app-container" style={{ paddingTop }}>
         <ToastContainer position={toast.POSITION.TOP_LEFT} className="toastify-container" toastClassName="toastify-toast" />
         <ErrorBoundary>
           <Header
@@ -55,7 +58,19 @@ export const App = () => {
           </Card>
           <Footer />
         </div>
-      </div>
+      </div> */}
+
+      <h2>This is your heading</h2>
+      <p>Sports are really fucking cool. I used to play sports, with Adam and Elliot.</p>
+      <p>My favorite color is sports.</p>
+      <img
+        src="https://www.si.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_620/MTkxMTM0NTI5OTE2NzczNzQy/matthew-tkachuk.jpg"
+        width="400"
+      ></img>
+      <QuizQuestion text={tempValue} />
+      <QuizQuestion text="On what day are sports the most manly" />
+      <QuizQuestion text="How many field goals did Lindros score in 78" />
+      <QuizQuestion text="Why Soccer?" />
     </BrowserRouter>
   );
 };
