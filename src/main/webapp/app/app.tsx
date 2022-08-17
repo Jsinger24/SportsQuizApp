@@ -19,7 +19,8 @@ import AppRoutes from 'app/routes';
 import QuizQuestion from './components/QuizQuestion';
 import NavBar from './components/NavBar/NavBar';
 import CategoryBar from './components/CategoryBar/CategoryBar';
-import WelcomeMessage from './components/WelcomeMessage/WelcomMessage';
+import WelcomeMessage from './components/MainPage/MainPage';
+import QuizBoard from './components/QuizBoard/QuizBoard';
 const baseHref = document.querySelector('base').getAttribute('href').replace(/\/$/, '');
 
 export const App = () => {
@@ -40,7 +41,8 @@ export const App = () => {
     <BrowserRouter basename={baseHref}>
       <NavBar />
       <WelcomeMessage />
-      <CategoryBar />
+      {/* <CategoryBar /> */}
+      <QuizBoard />
     </BrowserRouter>
   );
 };

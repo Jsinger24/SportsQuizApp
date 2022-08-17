@@ -1,0 +1,10 @@
+.score-counter {
+  background-color: lightgray;
+  width: 25%;
+  margin: auto;
+  margin-top: 20px;
+  font-weight: bold;
+  border: 5px solid;
+  text-align: center;
+  font-size: x-large;
+}

@@ -1,0 +1,11 @@
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+  height: 47px;
+}
+
+.welcome-message {
+  background-color: gray;
+  font-style: italic;
+}
