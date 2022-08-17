@@ -1,0 +1,9 @@
+.welcome-message {
+  background-color: silver;
+  font-style: italic;
+}
+
+.welcome-container {
+  margin: 100px 0px;
+  height: 47px;
+}
