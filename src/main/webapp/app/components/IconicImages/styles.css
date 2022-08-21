@@ -1,0 +1,10 @@
+.image-container > img {
+  width: 600px;
+  height: 375px;
+  padding: 20px;
+}
+
+.image-container {
+  margin: auto;
+  width: 100%;
+}

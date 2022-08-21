@@ -4,7 +4,7 @@ import 'app/config/dayjs.ts';
 
 import React, { useEffect } from 'react';
 import { Card } from 'reactstrap';
-import { BrowserRouter } from 'react-router-dom';
+// import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
 import { useAppDispatch, useAppSelector } from 'app/config/store';
@@ -21,6 +21,11 @@ import NavBar from './components/NavBar/NavBar';
 import CategoryBar from './components/CategoryBar/CategoryBar';
 import WelcomeMessage from './components/MainPage/MainPage';
 import QuizBoard from './components/QuizBoard/QuizBoard';
+import FrontPage from './components/FrontPage/FrontPage';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import IconicImages from './components/IconicImages/IconicImages';
+import FunFacts from './components/FunFacts/FunFacts';
+import SportsLegends from './components/SportsLegends';
 const baseHref = document.querySelector('base').getAttribute('href').replace(/\/$/, '');
 
 export const App = () => {
@@ -38,12 +43,14 @@ export const App = () => {
   const isOpenAPIEnabled = useAppSelector(state => state.applicationProfile.isOpenAPIEnabled);
 
   return (
-    <BrowserRouter basename={baseHref}>
-      <NavBar />
-      <WelcomeMessage />
-      {/* <CategoryBar /> */}
-      <QuizBoard />
-    </BrowserRouter>
+    <Router>
+      <Routes>
+        <Route path="/" element={<FrontPage />} />
+        <Route path="/FunFacts" element={<FunFacts />} />
+        <Route path="/IconicImages" element={<IconicImages />} />
+        <Route path="/SportsLegends" element={<SportsLegends />} />
+      </Routes>
+    </Router>
   );
 };
 

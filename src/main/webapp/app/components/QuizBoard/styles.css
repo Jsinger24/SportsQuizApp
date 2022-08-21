@@ -10,17 +10,17 @@
 }
 
 .categories {
-  background-color: plum;
+  background-color: rgb(98, 169, 195);
   font-weight: bolder;
   text-decoration: underline;
 }
 
 .ten-points {
-  background-color: red;
+  background-color: lightskyblue;
 }
 
 .twenty-points {
-  background-color: aqua;
+  background-color: lightseagreen;
 }
 
 .thirty-points {
@@ -28,5 +28,5 @@
 }
 
 .forty-points {
-  background-color: lightgreen;
+  background-color: rgb(209, 79, 79);
 }

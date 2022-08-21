@@ -1,0 +1,5 @@
+.fun-facts > * {
+  font-style: italic;
+  padding-top: 30px;
+  color: rgb(98, 169, 195);
+}
