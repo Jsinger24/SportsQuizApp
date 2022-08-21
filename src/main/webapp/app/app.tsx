@@ -25,7 +25,7 @@ import FrontPage from './components/FrontPage/FrontPage';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import IconicImages from './components/IconicImages/IconicImages';
 import FunFacts from './components/FunFacts/FunFacts';
-import SportsLegends from './components/SportsLegends';
+import SportsLegends from './components/SportsLegends/SportsLegends';
 const baseHref = document.querySelector('base').getAttribute('href').replace(/\/$/, '');
 
 export const App = () => {

@@ -1,0 +1,30 @@
+.legend > img {
+  width: 600px;
+  height: 500px;
+}
+
+.legend {
+  display: flex;
+  padding: 20px;
+}
+
+.legend > * {
+  margin: 0px 20px;
+}
+
+.sports-legends {
+  display: grid;
+  justify-content: center;
+}
+
+.legend-name {
+  font-size: 50px;
+  text-decoration: underline;
+  font-style: italic;
+  color: red;
+}
+
+.legend-info {
+  font-size: 20px;
+  color: rgb(98, 169, 195);
+}
