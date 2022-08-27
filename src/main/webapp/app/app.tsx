@@ -26,12 +26,19 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import IconicImages from './components/IconicImages/IconicImages';
 import FunFacts from './components/FunFacts/FunFacts';
 import SportsLegends from './components/SportsLegends/SportsLegends';
+import axios from 'axios';
 const baseHref = document.querySelector('base').getAttribute('href').replace(/\/$/, '');
+axios.defaults.baseURL = 'http://localhost:9000';
 
 export const App = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    async function axiosTest() {
+      const response = await axios.get('http://localhost:8080/questions');
+      console.log(response.data);
+    }
+    axiosTest();
     dispatch(getSession());
     dispatch(getProfile());
   }, []);
