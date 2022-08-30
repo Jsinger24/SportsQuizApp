@@ -1,6 +1,7 @@
 import React from 'react';
 import ScoreCounter from '../ScoreCounter/ScoreCounter';
 import './styles.css';
+import { Link } from 'react-router-dom';
 
 export default function QuizBoard() {
   return (
@@ -10,22 +11,31 @@ export default function QuizBoard() {
         <div className="categories">Baseball</div>
         <div className="categories">Football</div>
         <div className="categories">Basketball</div>
-        <div className="ten-points">10 Points</div>
-        <div className="ten-points">10 Points</div>
-        <div className="ten-points">10 Points</div>
-        <div className="ten-points">10 Points</div>
-        <div className="twenty-points">20 Points</div>
-        <div className="twenty-points">20 Points</div>
-        <div className="twenty-points">20 Points</div>
-        <div className="twenty-points">20 Points</div>
-        <div className="thirty-points">30 points</div>
-        <div className="thirty-points">30 points</div>
-        <div className="thirty-points">30 points</div>
-        <div className="thirty-points">30 points</div>
-        <div className="forty-points">40 points</div>
-        <div className="forty-points">40 points</div>
-        <div className="forty-points">40 points</div>
-        <div className="forty-points">40 points</div>
+
+        <Link to="/HockeyQuestions 100-points">100 points</Link>
+        <Link to="/BaseballQuestions 100-points">100 points</Link>
+        <Link to="/FootballQuestions 100-points">100 points</Link>
+        <Link to="/BasketballQuestions 100-points">100 points</Link>
+
+        <Link to="/HockeyQuestions 200-points">200 points</Link>
+        <Link to="/BaseballQuestions 200-points">200 points</Link>
+        <Link to="/FootballQuestions 200-points">200 points</Link>
+        <Link to="/BasketballQuestions 200-points">200 points</Link>
+
+        <Link to="/HockeyQuestions 300-points">300 points</Link>
+        <Link to="/BaseballQuestions 300-points">300 points</Link>
+        <Link to="/FootballQuestions 300-points">300 points</Link>
+        <Link to="/BasketballQuestions 300-points">300 points</Link>
+
+        <Link to="/HockeyQuestions 400-points">400 points</Link>
+        <Link to="/BaseballQuestions 400-points">400 points</Link>
+        <Link to="/FootballQuestions 400-points">400 points</Link>
+        <Link to="/BasketballQuestions 400-points">400 points</Link>
+
+        <Link to="/HockeyQuestions 500-points">500 points</Link>
+        <Link to="/BaseballQuestions 500-points">500 points</Link>
+        <Link to="/FootballQuestions 500-points">500 points</Link>
+        <Link to="/BasketballQuestions 500-points">500 points</Link>
       </div>
       <ScoreCounter />
     </div>
