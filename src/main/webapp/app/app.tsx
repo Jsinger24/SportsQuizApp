@@ -27,21 +27,22 @@ import IconicImages from './components/IconicImages/IconicImages';
 import FunFacts from './components/FunFacts/FunFacts';
 import SportsLegends from './components/SportsLegends/SportsLegends';
 import axios from 'axios';
+import QuestionPage from './components/QuestionPage/QuestionsPage';
 const baseHref = document.querySelector('base').getAttribute('href').replace(/\/$/, '');
 axios.defaults.baseURL = 'http://localhost:9000';
 
 export const App = () => {
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    async function axiosTest() {
-      const response = await axios.get('http://localhost:8080/questions');
-      console.log(response.data);
-    }
-    axiosTest();
-    dispatch(getSession());
-    dispatch(getProfile());
-  }, []);
+  // useEffect(() => {
+  //   async function axiosTest() {
+  //     const response = await axios.get('http://localhost:8080/question');
+  //     console.log(response.data[0].category);
+  //   }
+  //   axiosTest();
+  //   dispatch(getSession());
+  //   dispatch(getProfile());
+  // }, []);
 
   const isAuthenticated = useAppSelector(state => state.authentication.isAuthenticated);
   const isAdmin = useAppSelector(state => hasAnyAuthority(state.authentication.account.authorities, [AUTHORITIES.ADMIN]));
@@ -56,6 +57,7 @@ export const App = () => {
         <Route path="/FunFacts" element={<FunFacts />} />
         <Route path="/IconicImages" element={<IconicImages />} />
         <Route path="/SportsLegends" element={<SportsLegends />} />
+        <Route path="/QuestionPage" element={<QuestionPage />} />
       </Routes>
     </Router>
   );
