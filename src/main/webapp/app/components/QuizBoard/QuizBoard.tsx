@@ -28,13 +28,12 @@ export default function QuizBoard() {
   return (
     <div>
       <div className="quiz-board">
-        {/* <label id="testLabel">error</label> */}
         <div className="categories">Hockey</div>
         <div className="categories">Baseball</div>
         <div className="categories">Football</div>
         <div className="categories">Basketball</div>
 
-        <Link to="/QuestionPage">100 points</Link>
+        <Link to="/QuestionPage/NHL/100">100 points</Link>
         <Link to="/QuestionPage">100 points</Link>
         <Link to="/QuestionPage">100 points</Link>
         <Link to="/QuestionPage">100 points</Link>

@@ -57,7 +57,18 @@ export const App = () => {
         <Route path="/FunFacts" element={<FunFacts />} />
         <Route path="/IconicImages" element={<IconicImages />} />
         <Route path="/SportsLegends" element={<SportsLegends />} />
-        <Route path="/QuestionPage" element={<QuestionPage />} />
+        <Route
+          path="/QuestionPage/:category/:difficulty"
+          element={
+            <QuestionPage
+            // info = {{
+            //   difficulty: "300",
+            //   category: "NHL",
+            //   questionText: "This is a test"
+            // }}
+            />
+          }
+        />
       </Routes>
     </Router>
   );

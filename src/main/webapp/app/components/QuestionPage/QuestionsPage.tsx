@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './styles.css';
-import { Link, Router } from 'react-router-dom';
+import { Link, Router, useLocation, useParams } from 'react-router-dom';
 import Navbar from '../NavBar/NavBar';
 import QuizBoard from '../QuizBoard/QuizBoard';
 import ScoreCounter from '../ScoreCounter/ScoreCounter';
@@ -9,41 +9,62 @@ import { getProfile } from 'app/shared/reducers/application-profile';
 import { getSession } from 'app/shared/reducers/authentication';
 import axios from 'axios';
 
+interface QuestionProps {
+  questionText?: string;
+  correctAnswer?: string;
+  choices?: string[];
+  category?: string;
+  difficulty?: string;
+}
+
 export default function QuestionPage() {
-  const [question, setQuestion] = useState([]);
-  const dispatch = useAppDispatch();
-  var testArr;
+  const [question, setQuestion] = useState<QuestionProps>();
+  const { category, difficulty } = useParams();
+
+  // const dispatch = useAppDispatch();
 
   useEffect(() => {
     async function axiosTest() {
-      const response = await axios.get('http://localhost:8080/question');
-      testArr = response.data;
-      console.log(testArr);
-      setQuestion(testArr);
+      // const response = await axios.get('http://localhost:8080/question');
+      const response = await axios.get(`http://localhost:8080/question/${category}/${difficulty}`);
+      const data = response.data;
+      setQuestion({
+        questionText: data.questionText,
+        correctAnswer: data.correctAnswer,
+        choices: data.choices,
+        category: data.category,
+        difficulty: data.difficulty,
+      });
+      console.log(question);
     }
     axiosTest();
-    dispatch(getSession());
-    dispatch(getProfile());
+    // // dispatch(getSession());
+    // // dispatch(getProfile());
   }, []);
 
   return (
-    // {testArr}
     <div>
       <Navbar />
-      {question.map((quest, i) => {
-        return (
-          <div>
-            <h2>{quest['questionText']}</h2>
-          </div>
-        );
-      })}
+      <div>
+        <h2>{question?.questionText}</h2>
+      </div>
+
       <div className="info-container">
-        <label>Category</label>
-        <label>Points</label>
+        <label>{category}</label>
+        <label>{difficulty}</label>
       </div>
 
       <div className="question-container">
-        <h1>question-text</h1>
+        <div className="choices-container">
+          {question?.choices.map((element, counter) => {
+            return (
+              <div className={`choice${counter}`}>
+                <input type="radio" id="html" name="fav_language" value={`choice${counter}`} />
+                <label>{element}</label>
+              </div>
+            );
+          })}
+        </div>
         <div className="choices-container">
           <div className="choice1">
             <input type="radio" id="html" name="fav_language" value="choice1" />
