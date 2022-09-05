@@ -2,7 +2,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './app.scss';
 import 'app/config/dayjs.ts';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card } from 'reactstrap';
 // import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -16,7 +16,6 @@ import { hasAnyAuthority } from 'app/shared/auth/private-route';
 import ErrorBoundary from 'app/shared/error/error-boundary';
 import { AUTHORITIES } from 'app/config/constants';
 import AppRoutes from 'app/routes';
-import QuizQuestion from './components/QuizQuestion';
 import NavBar from './components/NavBar/NavBar';
 import CategoryBar from './components/CategoryBar/CategoryBar';
 import WelcomeMessage from './components/MainPage/MainPage';
@@ -33,6 +32,7 @@ axios.defaults.baseURL = 'http://localhost:9000';
 
 export const App = () => {
   // const dispatch = useAppDispatch();
+  const [score, setScore] = useState(0);
 
   // useEffect(() => {
   //   async function axiosTest() {
@@ -53,22 +53,11 @@ export const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<FrontPage />} />
+        <Route path="/" element={<FrontPage score={score} />} />
         <Route path="/FunFacts" element={<FunFacts />} />
         <Route path="/IconicImages" element={<IconicImages />} />
         <Route path="/SportsLegends" element={<SportsLegends />} />
-        <Route
-          path="/QuestionPage/:category/:difficulty"
-          element={
-            <QuestionPage
-            // info = {{
-            //   difficulty: "300",
-            //   category: "NHL",
-            //   questionText: "This is a test"
-            // }}
-            />
-          }
-        />
+        <Route path="/QuestionPage/:category/:difficulty" element={<QuestionPage score={score} setScore={setScore} />} />
       </Routes>
     </Router>
   );

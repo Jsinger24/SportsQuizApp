@@ -34,31 +34,30 @@ export default function QuizBoard() {
         <div className="categories">Basketball</div>
 
         <Link to="/QuestionPage/NHL/100">100 points</Link>
-        <Link to="/QuestionPage">100 points</Link>
-        <Link to="/QuestionPage">100 points</Link>
-        <Link to="/QuestionPage">100 points</Link>
+        <Link to="/QuestionPage/MLB/100">100 points</Link>
+        <Link to="/QuestionPage/NFL/100">100 points</Link>
+        <Link to="/QuestionPage/NBA/100">100 points</Link>
 
-        <Link to="/QuestionPage">200 points</Link>
-        <Link to="/QuestionPage">200 points</Link>
-        <Link to="/QuestionPage">200 points</Link>
-        <Link to="/QuestionPage">200 points</Link>
+        <Link to="/QuestionPage/NHL/200">200 points</Link>
+        <Link to="/QuestionPage/MLB/200">200 points</Link>
+        <Link to="/QuestionPage/NFL/200">200 points</Link>
+        <Link to="/QuestionPage/NBA/200">200 points</Link>
 
-        <Link to="/QuestionPage">300 points</Link>
-        <Link to="/QuestionPage">300 points</Link>
-        <Link to="/QuestionPage">300 points</Link>
-        <Link to="/QuestionPage">300 points</Link>
+        <Link to="/QuestionPage/NHL/300">300 points</Link>
+        <Link to="/QuestionPage/MLB/300">300 points</Link>
+        <Link to="/QuestionPage/NFL/300">300 points</Link>
+        <Link to="/QuestionPage/NBA/300">300 points</Link>
 
-        <Link to="/QuestionPage">400 points</Link>
-        <Link to="/QuestionPage">400 points</Link>
-        <Link to="/QuestionPage">400 points</Link>
-        <Link to="/QuestionPage">400 points</Link>
+        <Link to="/QuestionPage/NHL/400">400 points</Link>
+        <Link to="/QuestionPage/MLB/400">400 points</Link>
+        <Link to="/QuestionPage/NFL/400">400 points</Link>
+        <Link to="/QuestionPage/NBA/400">400 points</Link>
 
-        <Link to="/QuestionPage">500 points</Link>
-        <Link to="/QuestionPage">500 points</Link>
-        <Link to="/QuestionPage">500 points</Link>
-        <Link to="/QuestionPage">500 points</Link>
+        <Link to="/QuestionPage/NHL/500">500 points</Link>
+        <Link to="/QuestionPage/MLB/500">500 points</Link>
+        <Link to="/QuestionPage/NFL/500">500 points</Link>
+        <Link to="/QuestionPage/NBA/500">500 points</Link>
       </div>
-      <ScoreCounter />
     </div>
   );
 }

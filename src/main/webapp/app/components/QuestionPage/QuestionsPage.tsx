@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './styles.css';
-import { Link, Router, useLocation, useParams } from 'react-router-dom';
+import { Link, Router, useLocation, useNavigate, useParams } from 'react-router-dom';
 import Navbar from '../NavBar/NavBar';
 import QuizBoard from '../QuizBoard/QuizBoard';
 import ScoreCounter from '../ScoreCounter/ScoreCounter';
@@ -17,12 +17,17 @@ interface QuestionProps {
   difficulty?: string;
 }
 
-export default function QuestionPage() {
+interface QuestionPageProps {
+  score: number;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export default function QuestionPage(props: QuestionPageProps) {
   const [question, setQuestion] = useState<QuestionProps>();
+  const [userAnswer, setUserAnswer] = useState('');
   const { category, difficulty } = useParams();
-
-  // const dispatch = useAppDispatch();
-
+  const { score, setScore } = props;
+  const navigate = useNavigate();
   useEffect(() => {
     async function axiosTest() {
       // const response = await axios.get('http://localhost:8080/question');
@@ -42,49 +47,66 @@ export default function QuestionPage() {
     // // dispatch(getProfile());
   }, []);
 
+  function submitClick() {
+    console.log(question.correctAnswer);
+    if (userAnswer == question.correctAnswer) {
+      setScore(score + parseInt(difficulty));
+
+      console.log(score);
+      alert('Correct, you gained ' + difficulty + ' points!');
+    } else {
+      setScore(score - parseInt(difficulty));
+      console.log(score);
+      alert('Try Again! You lost ' + difficulty + ' points! HAHA!');
+    }
+    navigate('/');
+  }
+
+  // function backToHome() {
+  //   let navigate = useNavigate()
+  //   navigate("/");
+  // }
+
+  const checkUserAnswer = event => {
+    setUserAnswer(event.target.value);
+  };
+
   return (
     <div>
       <Navbar />
-      <div>
-        <h2>{question?.questionText}</h2>
-      </div>
-
+      {props.score}
       <div className="info-container">
         <label>{category}</label>
         <label>{difficulty}</label>
       </div>
 
       <div className="question-container">
+        <div>
+          <h2>{question?.questionText}</h2>
+        </div>
         <div className="choices-container">
           {question?.choices.map((element, counter) => {
             return (
               <div className={`choice${counter}`}>
-                <input type="radio" id="html" name="fav_language" value={`choice${counter}`} />
+                <input
+                  type="radio"
+                  className="choices"
+                  name="choices"
+                  value={element}
+                  checked={userAnswer === element}
+                  onChange={checkUserAnswer}
+                />
                 <label>{element}</label>
               </div>
             );
           })}
         </div>
-        <div className="choices-container">
-          <div className="choice1">
-            <input type="radio" id="html" name="fav_language" value="choice1" />
-            <label>choice1</label>
-          </div>
-          <div className="choice2">
-            <input type="radio" id="html" name="fav_language" value="choice1" />
-            <label>choice2</label>
-          </div>
-          <div className="choice3">
-            <input type="radio" id="html" name="fav_language" value="choice1" />
-            <label>choice3</label>
-          </div>
-          <div className="choice4">
-            <input type="radio" id="html" name="fav_language" value="choice1" />
-            <label>choice4</label>
-          </div>
-        </div>
+        {userAnswer}
+        <button onClick={submitClick} className="submit-button">
+          SUBMIT
+        </button>
       </div>
-      <ScoreCounter />
+      {/* <ScoreCounter info={{ score: score }} /> */}
     </div>
   );
 }
