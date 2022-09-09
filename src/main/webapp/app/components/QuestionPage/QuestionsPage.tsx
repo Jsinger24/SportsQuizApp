@@ -74,7 +74,6 @@ export default function QuestionPage(props: QuestionPageProps) {
   return (
     <div>
       <Navbar />
-      {props.score}
       <div className="info-container">
         <label>{category}</label>
         <label>{difficulty}</label>
